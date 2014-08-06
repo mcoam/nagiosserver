@@ -19,6 +19,6 @@ Module for Nagios Server monitoring version 1.0
 	}
 
 
-- Ref. http://blog.bluemalkin.net/tag/puppetdb/
 - Ref. http://www.allgoodbits.org/articles/view/41
+- Ref. http://blog.bluemalkin.net/tag/puppetdb/
 - Ref. https://www.digitalocean.com/community/tutorials/how-to-install-nagios-on-centos-6
