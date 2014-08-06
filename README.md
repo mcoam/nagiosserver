@@ -12,7 +12,7 @@ Install package and setting configuration in Nagios Server
         }
 
 
-#Install package and setting configuration in Nagios Server
+####Install package and setting configuration in Nagios Server
 	
 	node 'node1.example.com' {
  		include nagios::client_nrpe
