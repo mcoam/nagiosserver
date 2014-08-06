@@ -1,6 +1,8 @@
-#Module for Nagios Server monitoring version 1.0
+Module for Nagios Server monitoring version 1.0
+==============================================
 
-* Install nagios server 
+Install package and setting configuration in Nagios Server
+----------------------------------------------------------
 
 	node 'nagios.example.com' {
                 include nagios::server_package
@@ -8,14 +10,6 @@
                 include nagios::server_service
                 include nagios::server_import
         }
-
-
-* Install nagios node
-
-	node 'node1.example.com' {
- 		include nagios::client_nrpe
- 		include nagios::export
-	}	
 
 
 
