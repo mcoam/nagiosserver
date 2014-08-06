@@ -12,6 +12,13 @@ Install package and setting configuration in Nagios Server
         }
 
 
+#Install package and setting configuration in Nagios Server
+	
+	node 'node1.example.com' {
+ 		include nagios::client_nrpe
+ 		include nagios::export
+	}
+
 
 Ref. http://blog.bluemalkin.net/tag/puppetdb/
 Ref. http://www.allgoodbits.org/articles/view/41
