@@ -1,5 +1,5 @@
-class nagios::server_package {
-    package { [ 'nagios', 'nagios-plugins-all', 'nagios-plugins-nrpe', 'nrpe', 'php', 'httpd' ]:
+class nagios::server_package inherits nagios {
+    package { $nagios_server_package:
         ensure  => present,
     }
 }

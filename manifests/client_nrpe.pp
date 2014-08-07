@@ -1,6 +1,6 @@
-class nagios::client_nrpe inherits nagios::params  {
+class nagios::client_nrpe inherits nagios::params {
 
-    package { [ 'nagios-plugins-all', 'nrpe' ]:
+    package {$nagios_client_package:
         ensure      => present,
     }
 
@@ -9,11 +9,15 @@ class nagios::client_nrpe inherits nagios::params  {
         enable      => true,
     }
 
-file { '/etc/nagios/nrpe.cfg':
+   file { "$nrpe_config_file":
         ensure  => present,
         content => template("/etc/puppet/modules/nagios/templates/nrpe.cfg.erb"),
-#        source => "puppet:///modules/nagios/nrpe.cfg",
-        notify  => Service[ 'nrpe' ],
+        notify  => Service[ "$nrpe_service" ],
+    }
+
+   file { "/etc/nagios/contactos":
+        ensure  => present,
+        content => template("nagios/contactos.erb"),
     }
 
 }

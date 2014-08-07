@@ -1,12 +1,12 @@
 class nagios::server_config inherits nagios   {
 
 
-file { "/etc/nagios/servers":
+file { $servers_config_path:
 	ensure => directory,
     }
 
 
-file { '/etc/nagios/nagios.cfg':
+file { $servers_config_file:
 	require => File["/etc/nagios/servers"],
     	ensure  => present,
 	content => template("/etc/puppet/modules/nagios/templates/nagios.cfg.erb"),
