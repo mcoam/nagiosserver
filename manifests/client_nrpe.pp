@@ -11,7 +11,7 @@ class nagios::client_nrpe inherits nagios::params {
 
    file { "$nrpe_config_file":
         ensure  => present,
-        content => template("/etc/puppet/modules/nagios/templates/nrpe.cfg.erb"),
+        content => template("nagios/nrpe.cfg.erb"),
         notify  => Service[ "$nrpe_service" ],
     }
 

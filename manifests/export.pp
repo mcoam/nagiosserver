@@ -7,13 +7,13 @@ class nagios::export inherits nagios::params {
          ensure 	=> present,
          alias 		=> $hostname,
          address 	=> $ipaddress_eth1,
-         target    	=> "/etc/puppet/servers/${::fqdn}.cfg",
+         target    	=> "/etc/nagios/servers/${::fqdn}.cfg",
       }
 
       @@nagios_service { "check_ping_${hostname}":
-	host_name              =>   $::fqdn,
-	 use  			=> "generic-service",
-	 service_description  	=> "Check Ping",
+			host_name              =>   $::fqdn,
+			use  			=> "generic-service",
+			service_description  	=> "Check Ping",
          check_command 		=> "check_ping!100.0,20%!500.0,60%",
          target    		=> "$servers_config_path/${::fqdn}.cfg",
       }
