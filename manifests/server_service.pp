@@ -1,4 +1,4 @@
-class nagios::server_service {
+class nagios::server_service inherits nagios {
  
     exec { 'fix-permissions':
 	path 	    => "/usr/local/bin/:/bin/:/usr/bin",
@@ -6,12 +6,12 @@ class nagios::server_service {
         refreshonly => true,
     } ->
  
-    service { 'nagios':
+    service { "$nagios_service":
         ensure  => running,
         enable  => true,
     }
     
-    service { 'httpd':
+    service { "$apache_service":
         ensure  => running,
         enable  => true,
     }

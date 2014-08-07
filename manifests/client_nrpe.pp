@@ -4,7 +4,7 @@ class nagios::client_nrpe inherits nagios::params  {
         ensure      => present,
     }
 
-    service { 'nrpe':
+    service { "$nrpe_service":
         ensure      => running,
         enable      => true,
     }
