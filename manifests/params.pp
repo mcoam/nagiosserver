@@ -5,8 +5,8 @@ class nagios::params {
 	$nagios_service	     	= 'nagios'
 	$nrpe_service		= 'nrpe'
 	$nrpe_config_file	= '/etc/nagios/nrpe.cfg'
-	$apache_service		= 'httpd'
+	$httpd_service		= 'httpd'
 	$nagios_client_package  =  [ 'nrpe', 'nagios-plugins-all' ] 
-	$nagios_server_package  =  [ 'nagios', 'nagios-plugins-nrpe', 'nrpe', 'php', 'httpd' ]
-	$nagios_contacs1	= ['name => miguel', 'email => mcoa@itlinux.cl']
+	$nagios_server_package  =  [ 'nagios','nagios-plugins-all', 'nagios-plugins-nrpe', 'nrpe', 'php', 'httpd' ]
+	$nagios_contacs1	= ['name => miguel', 'email => mcoa@example.com']
 }

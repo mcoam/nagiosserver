@@ -11,7 +11,7 @@ class nagios::server_service inherits nagios {
         enable  => true,
     }
     
-    service { "$apache_service":
+    service { "$httpd_service":
         ensure  => running,
         enable  => true,
     }
