@@ -7,6 +7,7 @@ class nagios (
     $apache_service	        = $nagios::params::apache_service,
     $nagios_client_package  = $nagios::params::nagios_client_package,
     $nagios_server_package  = $nagios::params::nagios_server_package,
+		$hostgroup_file				  =	$nagios::params::hostgroup_file
 )inherits nagios::params {
     include nagios::server_package
     include nagios::server_config

@@ -9,4 +9,5 @@ class nagios::params {
 	$nagios_client_package  =  [ 'nrpe', 'nagios-plugins-all' ] 
 	$nagios_server_package  =  [ 'nagios','nagios-plugins-all', 'nagios-plugins-nrpe', 'nrpe', 'php', 'httpd' ]
 	$nagios_contacs1	= ['name => miguel', 'email => mcoa@example.com']
+	$hostgroup_file = '/etc/nagios/objects/hostgroup.cfg'
 }
