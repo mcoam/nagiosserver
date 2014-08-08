@@ -1,7 +1,7 @@
 class nagios::client_nrpe inherits nagios::params {
 
     package {$nagios_client_package:
-        ensure      => present,
+        ensure      => "installed",
     }
 
     service { "$nrpe_service":

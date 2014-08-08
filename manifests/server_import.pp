@@ -9,4 +9,9 @@ class nagios::server_import {
         require => Class[ 'nagios::server_package' ],
         notify  => Class[ 'nagios::server_service' ]
     }
+
+   Nagios_hostgroup <<||>> {
+    require => Class['nagios::server_package'],
+    notify  => Class['nagios::server_service'],
+  }
 }

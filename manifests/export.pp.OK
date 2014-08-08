@@ -8,7 +8,6 @@ class nagios::export inherits nagios::params {
          alias				=> $hostname,
          address			=> $ipaddress_eth1,
          target				=> "/etc/nagios/servers/${::fqdn}.cfg",
-	hostgroups => 'TVN',
       }
 
       @@nagios_service { "check_ping_${hostname}":
