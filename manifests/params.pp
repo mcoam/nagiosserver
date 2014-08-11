@@ -1,7 +1,7 @@
 class nagios::params {
 	$servers_config_path 	= '/etc/nagios/servers'
 	$servers_config_file	= '/etc/nagios/nagios.cfg'
-	$allowed_hosts 	     	= '127.0.0.1, 192.168.1.100'
+	$allowed_hosts 	     	= '127.0.0.1, 192.168.1.100, 192.9.200.216, 10.132.17.103, 192.168.1.101' 
 	$nagios_service	     	= 'nagios'
 	$nrpe_service		= 'nrpe'
 	$nrpe_config_file	= '/etc/nagios/nrpe.cfg'

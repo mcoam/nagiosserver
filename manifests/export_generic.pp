@@ -1,6 +1,5 @@
 class nagios::export_generic inherits nagios::params {
 
-
 @@nagios_host { $fqdn:
         use					=> "linux-server",
          ensure				=> present,
@@ -22,7 +21,7 @@ class nagios::export_generic inherits nagios::params {
         host_name    =>   $::fqdn,
         use             => "generic-service",
         service_description => "Check Root Disk",
-        check_command   => "check_local_disk!20%!10%!/",
+        check_command   => "check_nrpe!check_root_partition",
         target  => "$servers_config_path/${::fqdn}.cfg",
       }
 
@@ -38,8 +37,36 @@ class nagios::export_generic inherits nagios::params {
         host_name              =>   $::fqdn,
          use                    => "generic-service",
          service_description    => "Current Users",
-         check_command          => "check_local_users!20!50",
+         check_command          => "check_nrpe!check_users",
          target                 => "$servers_config_path/${::fqdn}.cfg",
       }
+
+        @@nagios_service { "current_swap${hostname}":
+        host_name              =>   $::fqdn,
+         use                    => "generic-service",
+         service_description    => "Current Swap",
+         check_command          => "check_nrpe!check_swap",
+         target                 => "$servers_config_path/${::fqdn}.cfg",
+      }
+
+    @@nagios_service { "check_load${hostname}":
+        host_name   =>   $::fqdn,
+        use   => "generic-service",
+        service_description     => "Check Load",
+        check_command   => "check_nrpe!check_load",
+        target  => "$servers_config_path/${::fqdn}.cfg",
+ 
+      }  
+
+    @@nagios_service { "check_memory${hostname}":
+        host_name   =>   $::fqdn,
+        use   => "generic-service",
+        service_description     => "Check Memory Ram",
+        check_command   => "check_nrpe!check_memory",
+        target  => "$servers_config_path/${::fqdn}.cfg",
+ 
+      }  
+
+
 
 }#cierra clase

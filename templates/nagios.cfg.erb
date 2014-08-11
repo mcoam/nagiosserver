@@ -1,5 +1,4 @@
-####GENERATE BY PUPPET
-
+### CREATED BY PUPPET
 
 ##############################################################################
 #
@@ -34,9 +33,10 @@ cfg_file=/etc/nagios/objects/commands.cfg
 cfg_file=/etc/nagios/objects/contacts.cfg
 cfg_file=/etc/nagios/objects/timeperiods.cfg
 cfg_file=/etc/nagios/objects/templates.cfg
+cfg_file=/etc/nagios/objects/hostgroups.cfg
 
 # Definitions for monitoring the local (Linux) host
-cfg_file=/etc/nagios/objects/localhost.cfg
+#cfg_file=/etc/nagios/objects/localhost.cfg
 
 # Definitions for monitoring a Windows machine
 #cfg_file=/etc/nagios/objects/windows.cfg
@@ -52,12 +52,12 @@ cfg_file=/etc/nagios/objects/localhost.cfg
 # extension) in a particular directory by using the cfg_dir
 # directive as shown below:
 
-cfg_dir=<%= @servers_config_path  %>
+cfg_dir=/etc/nagios/servers
 #cfg_dir=/etc/nagios/printers
 #cfg_dir=/etc/nagios/switches
 #cfg_dir=/etc/nagios/routers
 
-##cfg_dir=/etc/nagios/conf.d
+#cfg_dir=/etc/nagios/conf.d
 
 
 
