@@ -16,6 +16,14 @@ case $fqdn {
       'node2.example.com': { 
 	include export_generic
 
+    @@nagios_service { "check_ftp${hostname}":
+        host_name   =>   $::fqdn,
+        use   => "generic-service",
+        service_description     => "Check FTP",
+        check_command   => "check_ftp",
+        target  => "$servers_config_path/${::fqdn}.cfg",
+      }
+
 } 
       default:             {  
 
