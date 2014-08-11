@@ -9,7 +9,14 @@ class nagios::server_service inherits nagios {
     service { "$nagios_service":
         ensure  => running,
         enable  => true,
-    }
+#	notify => Exec["reloadnagios"]
+    } 
+
+#  exec{"reloadnagios":
+#	path 	    => "/usr/local/bin/:/bin/:/usr/bin",
+#	onlyif => "/etc/init.d/nagios stop",
+#	command => "puppet agent --test",
+#}
     
     service { "$httpd_service":
         ensure  => running,
