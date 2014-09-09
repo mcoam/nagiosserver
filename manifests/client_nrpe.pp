@@ -15,9 +15,4 @@ class nagios::client_nrpe inherits nagios::params {
         notify  => Service[ "$nrpe_service" ],
     }
 
-   file { "/usr/lib64/nagios/plugins/check_memory.pl":
-        ensure  => present,
-        source  => "puppet:///modules/nagios/check_memory.pl",
-    }
-
 }

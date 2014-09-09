@@ -15,6 +15,7 @@ case $fqdn {
         service_description     => "Check FTP",
         check_command   => "check_ftp",
         target  => "$servers_config_path/${::fqdn}.cfg",
+	contact_groups  => 'vagrant-vm', 
       }
 
 } 

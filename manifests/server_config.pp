@@ -7,10 +7,16 @@ file { $servers_config_path:
 
 
 file { $servers_config_file:
-	require => File["/etc/nagios/servers"],
+	require => File["$servers_config_path"],
  	ensure  => present,
 	#content => template("nagios/nagios.cfg.erb"),
 	source => "puppet:///modules/nagios/nagios.cfg",
+	notify  => Class[ 'nagios::server_service' ],
+    }
+file { $contacts_file:
+	require => File["$servers_config_path"],
+ 	ensure  => present,
+	source => "puppet:///modules/nagios/contacts.cfg",
 	notify  => Class[ 'nagios::server_service' ],
     }
 
