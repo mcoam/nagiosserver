@@ -54,16 +54,16 @@ For setting hostgroups configure the values inside manifests/server_hostgroup.pp
 
 	}	
 
-and inside the export.pp/export_generic.pp, example:
+and inside the export.pp/export_generic.pp you need setting the tag "contact_groups =>" , example:
 
 
-		    @@nagios_service { "check_ftp${hostname}":
-			host_name   =>   $::fqdn,
-			use   => "generic-service",
-			service_description     => "Check FTP",
-			check_command   => "check_ftp",
-			target  => "$servers_config_path/${::fqdn}.cfg",
-			contact_groups  => 'vagrant-vm',
+	    @@nagios_service { "check_ftp${hostname}":
+		host_name   =>   $::fqdn,
+		use   => "generic-service",
+		service_description     => "Check FTP",
+		check_command   => "check_ftp",
+		target  => "$servers_config_path/${::fqdn}.cfg",
+		contact_groups  => 'vagrant-vm',
 
 
 
