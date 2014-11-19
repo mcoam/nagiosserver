@@ -10,6 +10,8 @@ class nagios (
     $hostgroup_file	    =	$nagios::params::hostgroup_file,
     $nagios_plugins_path     = $nagios::params::nagios_plugins_path,
     $contacts_file     = $nagios::params::contacts_file,
+    $nagios_commands_file     = $nagios::params::nagios_commands_file,
+    $nagios_objects_path     = $nagios::params::nagios_objects_path,
 )inherits nagios::params {
     include nagios::server_package
     include nagios::server_config

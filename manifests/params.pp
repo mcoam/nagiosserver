@@ -9,6 +9,8 @@ class nagios::params {
 	$nagios_client_package  =  [ 'nrpe', 'nagios-plugins-all' ] 
 	$nagios_server_package  =  [ 'nagios','nagios-plugins-all', 'nagios-plugins-nrpe', 'nrpe', 'php', 'httpd' ]
 	$hostgroups_file 	= '/etc/nagios/objects/hostgroups.cfg'
-	$contacts_file 	= '/etc/nagios/objects/contacts.cfg'
+	$contacts_file 		= '/etc/nagios/objects/contacts.cfg'
+	$nagios_commands_file	= '/etc/nagios/objects/commands.cfg'
 	$nagios_plugins_path 	= '/usr/lib64/nagios/plugins'
+	$nagios_objects_path	= '/etc/nagios/objects'
 }

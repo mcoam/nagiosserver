@@ -13,8 +13,20 @@ file { $servers_config_file:
 	source => "puppet:///modules/nagios/nagios.cfg",
 	notify  => Class[ 'nagios::server_service' ],
     }
+
+file { $nagios_objects_path:
+	ensure => directory,
+    } ->
+
+file { $nagios_commands_file:
+	require => File["$nagios_objects_path"],
+ 	ensure  => present,
+	source => "puppet:///modules/nagios/commands.cfg",
+	notify  => Class[ 'nagios::server_service' ],
+    }
+
 file { $contacts_file:
-	require => File["$servers_config_path"],
+	require => File["$nagios_objects_path"],
  	ensure  => present,
 	source => "puppet:///modules/nagios/contacts.cfg",
 	notify  => Class[ 'nagios::server_service' ],
