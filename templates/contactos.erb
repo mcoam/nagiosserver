@@ -1,9 +1,0 @@
-<% @nagios_contacs1.each   do |val|  -%>
-define contact{
-        contact_name                    <%= val ['name']  %>
-        use                             generic-contact
-        alias                           Sanjay Gupta (Developer)
-        email                           <%= val ['email'] %>
-        pager                           333-333@pager.thegeekstuff.com
-        }
-<% end -%>
