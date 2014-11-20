@@ -12,6 +12,7 @@ class nagios (
     $contacts_file     = $nagios::params::contacts_file,
     $nagios_commands_file     = $nagios::params::nagios_commands_file,
     $nagios_objects_path     = $nagios::params::nagios_objects_path,
+    $nrpe_sript_file     = $nagios::params::nrpe_sript_file,
 )inherits nagios::params {
     include nagios::server_package
     include nagios::server_config

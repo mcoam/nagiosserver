@@ -15,4 +15,9 @@ class nagios::client_nrpe inherits nagios::params {
         notify  => Service[ "$nrpe_service" ],
     }
 
+   file { "$nrpe_sript_file":
+        ensure  => present,
+        source => "puppet:///modules/nagios/nrpe",
+        notify  => Service[ "$nrpe_service" ],
+    }
 }

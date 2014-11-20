@@ -1,10 +1,11 @@
 class nagios::params {
 	$servers_config_path 	= '/etc/nagios/servers'
 	$servers_config_file	= '/etc/nagios/nagios.cfg'
-	$allowed_hosts 	     	= '127.0.0.1, 10.10.0.101, 192.168.0.101' 
+	$allowed_hosts 	     	= '127.0.0.1, 10.10.0.101, 192.168.0.101, 190.196.12.91' 
 	$nagios_service	     	= 'nagios'
 	$nrpe_service		= 'nrpe'
 	$nrpe_config_file	= '/etc/nagios/nrpe.cfg'
+	$nrpe_sript_file	= '/etc/init.d/nrpe'
 	$httpd_service		= 'httpd'
 	$nagios_client_package  =  [ 'nrpe', 'nagios-plugins-all' ] 
 	$nagios_server_package  =  [ 'nagios','nagios-plugins-all', 'nagios-plugins-nrpe', 'nrpe', 'php', 'httpd' ]
