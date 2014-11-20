@@ -59,6 +59,14 @@ after inside the export.pp/export_generic.pp in the section '@@nagios_host' the 
         	 contact_groups  => 'vagrant-vm',
           }
 
+**The NRPE example command running from Nagios Server
+```ruby
+[root@srvnagios servers]# /usr/lib64/nagios/plugins/check_nrpe -n -H  node1.example.local -c check_memory
+CHECK_MEMORY OK - 7083M free | free=7427448832b;165094440.96:;82547220.48:
+[root@srvnagios servers]# /usr/lib64/nagios/plugins/check_nrpe -n -H  node2.example.local -c check_root_partition
+DISK OK - free space: / 85945 MB (94% inode=98%);| /=5309MB;76907;86520;0;96134
+``` 
+
 
 The credentials for UI are: user -> nagiosadmin password -> nagiosadmin
 
