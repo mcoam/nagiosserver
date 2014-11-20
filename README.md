@@ -60,7 +60,7 @@ after inside the export.pp/export_generic.pp in the section '@@nagios_host' the 
           }
 
 ####NRPE command running from Nagios Server
-```ruby
+```bash
 [root@srvnagios servers]# /usr/lib64/nagios/plugins/check_nrpe -n -H  node1.example.local -c check_memory
 CHECK_MEMORY OK - 7083M free | free=7427448832b;165094440.96:;82547220.48:
 [root@srvnagios servers]# /usr/lib64/nagios/plugins/check_nrpe -n -H  node2.example.local -c check_root_partition
