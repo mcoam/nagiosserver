@@ -47,7 +47,7 @@ For setting hostgroups configure this value inside *files/hostgroups.cfg*
 		hostgroup_name                 Vagrant Servers
 	}
 
-after inside the export.pp/export_generic.pp in the section '@@nagios_host' the value 'hostgroups'
+after inside the *export.pp/export_generic.pp* in the section *'@@nagios_host' the value *'hostgroups'*
 
 	     @@nagios_host { $fqdn:
         	use             => "linux-server",
@@ -68,7 +68,9 @@ DISK OK - free space: / 85945 MB (94% inode=98%);| /=5309MB;76907;86520;0;96134
 ``` 
 
 
-The credentials for UI are: user -> nagiosadmin password -> nagiosadmin
+The credentials for web access are: 
+	**user** nagiosadmin 
+	**password**  nagiosadmin
 
 
 TODO
