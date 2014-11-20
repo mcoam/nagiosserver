@@ -16,4 +16,5 @@ class nagios (
     include nagios::server_package
     include nagios::server_config
     include nagios::server_service
+    include nagios::server_import
 }

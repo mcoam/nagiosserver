@@ -20,7 +20,7 @@ Module for Nagios Server monitoring version 1.0
 
 
 
-## Setting contacs
+## Setting contacts
 
 For setting contacs configure the values inside file/contacts.cfg
 
@@ -40,32 +40,27 @@ For setting contacs configure the values inside file/contacts.cfg
 
 ## Setting hostgroups
 
-For setting hostgroups configure the values inside manifests/server_hostgroup.pp
+For setting hostgroups configure this value inside "files/hostgroups.cfg"
+
+	define hostgroup {
+		alias                          Vagrant Servers
+		hostgroup_name                 Vagrant Servers
+	}
+
+after inside the export.pp/export_generic.pp in the section '@@nagios_host' the value 'hostgroups'
+
+	     @@nagios_host { $fqdn:
+        	use             => "linux-server",
+         	ensure         => present,
+         	alias          => $hostname,
+         	address        => $ipaddress_eth1,
+         	target         => "/etc/nagios/servers/${::fqdn}.cfg",
+         	hostgroups     => 'GTD Servers',
+        	 contact_groups  => 'vagrant-vm',
+          }
 
 
-	class nagios::server_hostgroup {
-
-		@@nagios_hostgroup { 'vagrant-vm':
-	    		ensure         => present,
-    			alias          => 'vagrant-vm',
-    			hostgroup_name => 'vagrant-vm',
-    			target         => "/etc/nagios/objects/hostgroups.cfg",
-  		}
-
-	}	
-
-and inside the export.pp/export_generic.pp you need setting the tag "contact_groups =>" , example:
-
-
-	    @@nagios_service { "check_ftp${hostname}":
-		host_name   =>   $::fqdn,
-		use   => "generic-service",
-		service_description     => "Check FTP",
-		check_command   => "check_ftp",
-		target  => "$servers_config_path/${::fqdn}.cfg",
-		contact_groups  => 'vagrant-vm',
-
-
+The credentials for UI are: user -> nagiosadmin password -> nagiosadmin
 
 
 TODO

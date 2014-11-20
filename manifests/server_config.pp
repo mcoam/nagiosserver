@@ -32,6 +32,13 @@ file { $contacts_file:
 	notify  => Class[ 'nagios::server_service' ],
     }
 
+file { $hostgroups_file:
+	require => File["$nagios_objects_path"],
+ 	ensure  => present,
+	source => "puppet:///modules/nagios/hostgroups.cfg",
+	notify  => Class[ 'nagios::server_service' ],
+    }
+
 
 #notify { 'Config Hello World': }
 
