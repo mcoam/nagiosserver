@@ -3,10 +3,10 @@ class nagios::export inherits nagios::params {
 case $fqdn {
       'node1.example.com': {
 	 include export_generic
-
-	
- }  ###CIERRA PRIMER NODO###
-      'node2.example.com': { 
+ }  
+###CIERRA PRIMER NODO###
+###ABRE SUGUNDO NODO###
+      'samba.example.com': { 
 	include export_generic
 
     @@nagios_service { "check_ftp${hostname}":
@@ -18,10 +18,13 @@ case $fqdn {
 	contact_groups  => 'vagrant-vm', 
       }
 
-} 
+}
+####CIERRA SEGUNDO NODO###
+###ABRE DEFAULT
       default:             {  
-
-    } ###CIERRA DEFAULT
+	include export_generic
+    } 
+###CIERRA DEFAULT
   } ###CIERRA CASE
 } ###CIERRA CLASE
 
