@@ -58,6 +58,10 @@ after inside the *export.pp/export_generic.pp* in the section *'@@nagios_host' t
          	hostgroups     => 'GTD Servers',
         	 contact_groups  => 'vagrant-vm',
           }
+## Monitoring service
+The service monitoring are configure in the next class:
+**export.pp**: Custom monitoring for specific nodes (case statement compare *FQDN* facter value)
+**export_generic.pp**: Generic monitoring for all nodes conected to Nagios server
 
 ## NRPE command running from Nagios Server
 ```
