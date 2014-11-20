@@ -22,7 +22,7 @@ Module for Nagios Server monitoring version 1.0
 
 ## Setting contacts
 
-For setting contacs configure the values inside file/contacts.cfg
+For setting contacs configure the values inside *file/contacts.cfg*
 
 
 	define contact{
@@ -40,7 +40,7 @@ For setting contacs configure the values inside file/contacts.cfg
 
 ## Setting hostgroups
 
-For setting hostgroups configure this value inside "files/hostgroups.cfg"
+For setting hostgroups configure this value inside *files/hostgroups.cfg*
 
 	define hostgroup {
 		alias                          Vagrant Servers
