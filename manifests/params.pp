@@ -13,4 +13,8 @@ class nagios::params {
 	$nagios_commands_file	= '/etc/nagios/objects/commands.cfg'
 	$nagios_plugins_path 	= '/usr/lib64/nagios/plugins'
 	$nagios_objects_path	= '/etc/nagios/objects'
+	$nagios_client_package_debian	= [ 'nagios-nrpe-server', 'nagios-plugins', 'libnagios-plugin-perl' ]
+	$nrpe_config_file_debian        = '/etc/nagios/nrpe_deb.cfg'
+	$nrpe_service_debian		= 'nagios-nrpe-server'
+	$nrpe_default_debian		= '/etc/default/nagios-nrpe-server'
 }

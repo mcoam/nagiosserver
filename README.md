@@ -1,6 +1,8 @@
 Module for Nagios Server monitoring version 1.0
 ==============================================
 
+#### Nagios server running only Centos server, nodes supported  only family Rhel and Debian
+
 ####Install package and setting configuration on Nagios Server
 
 	node 'nagios.example.com' {
@@ -70,7 +72,6 @@ and inside the export.pp/export_generic.pp you need setting the tag "contact_gro
 
 TODO
 ====
-- Debian node
 
 - Ref. http://www.allgoodbits.org/articles/view/41
 - Ref. http://blog.bluemalkin.net/tag/puppetdb/
