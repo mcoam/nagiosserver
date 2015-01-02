@@ -17,6 +17,7 @@ case $::osfamily {
         notify  => Service[ "$nrpe_service" ],
     }
 
+<<<<<<< HEAD
   } # cierra redhat case 
 
    'debian': {
@@ -50,3 +51,17 @@ case $::osfamily {
  } # cierra case osfamily
 
 } #cierra clase
+=======
+   file { "$nrpe_sript_file":
+        ensure  => present,
+        source => "puppet:///modules/nagios/nrpe",
+        notify  => Service[ "$nrpe_service" ],
+    }
+
+   file { "/usr/lib64/nagios/plugins/check_memory.pl":
+        ensure  => present,
+        source => "puppet:///modules/nagios/plugins/check_memory.pl",
+        notify  => Service[ "$nrpe_service" ],
+    }
+}
+>>>>>>> e613c9ec284baad9a5842ab93b95f1619db0af7c

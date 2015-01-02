@@ -22,9 +22,9 @@ Module for Nagios Server monitoring version 1.0
 
 
 
-## Setting contacs
+## Setting contacts
 
-For setting contacs configure the values inside file/contacts.cfg
+For setting contacs configure the values inside *file/contacts.cfg*
 
 
 	define contact{
@@ -42,32 +42,39 @@ For setting contacs configure the values inside file/contacts.cfg
 
 ## Setting hostgroups
 
-For setting hostgroups configure the values inside manifests/server_hostgroup.pp
+For setting hostgroups configure this value inside *files/hostgroups.cfg*
+
+	define hostgroup {
+		alias                          Vagrant Servers
+		hostgroup_name                 Vagrant Servers
+	}
+
+after inside the *export.pp/export_generic.pp* in the section *'@@nagios_host' the value *'hostgroups'*
+
+	     @@nagios_host { $fqdn:
+        	use             => "linux-server",
+         	ensure         => present,
+         	alias          => $hostname,
+         	address        => $ipaddress_eth1,
+         	target         => "/etc/nagios/servers/${::fqdn}.cfg",
+         	hostgroups     => 'GTD Servers',
+        	 contact_groups  => 'vagrant-vm',
+          }
+## Monitoring service
+The service monitoring are configure in the next class:
+- **export.pp**: Custom monitoring for specific nodes (case statement compare *FQDN* facter value)
+- **export_generic.pp**: Generic monitoring for all nodes conected to Nagios server
+
+## NRPE command running from Nagios Server
+```
+[root@srvnagios servers]# /usr/lib64/nagios/plugins/check_nrpe -n -H  node1.example.local -c check_memory
+CHECK_MEMORY OK - 7083M free | free=7427448832b;165094440.96:;82547220.48:
+[root@srvnagios servers]# /usr/lib64/nagios/plugins/check_nrpe -n -H  node2.example.local -c check_root_partition
+DISK OK - free space: / 85945 MB (94% inode=98%);| /=5309MB;76907;86520;0;96134
+``` 
 
 
-	class nagios::server_hostgroup {
-
-		@@nagios_hostgroup { 'vagrant-vm':
-	    		ensure         => present,
-    			alias          => 'vagrant-vm',
-    			hostgroup_name => 'vagrant-vm',
-    			target         => "/etc/nagios/objects/hostgroups.cfg",
-  		}
-
-	}	
-
-and inside the export.pp/export_generic.pp you need setting the tag "contact_groups =>" , example:
-
-
-	    @@nagios_service { "check_ftp${hostname}":
-		host_name   =>   $::fqdn,
-		use   => "generic-service",
-		service_description     => "Check FTP",
-		check_command   => "check_ftp",
-		target  => "$servers_config_path/${::fqdn}.cfg",
-		contact_groups  => 'vagrant-vm',
-
-
+####The credentials for webaccess are: nagiosadmin/nagiosadmin
 
 
 TODO

@@ -7,6 +7,7 @@ class nagios (
     $apache_service	    = $nagios::params::apache_service,
     $nagios_client_package  = $nagios::params::nagios_client_package,
     $nagios_server_package  = $nagios::params::nagios_server_package,
+<<<<<<< HEAD
     $hostgroup_file	    = $nagios::params::hostgroup_file,
     $nagios_plugins_path    = $nagios::params::nagios_plugins_path,
     $contacts_file     	    = $nagios::params::contacts_file,
@@ -17,8 +18,17 @@ class nagios (
     $nrpe_config_file_debian 	  = $nagios::params::nrpe_config_file_debian,
     $nrpe_service_debian 	  = $nagios::params::nrpe_service_debian,
     $nrpe_default_debian 	  = $nagios::params::nrpe_default_debian,
+=======
+    $hostgroup_file	    =	$nagios::params::hostgroup_file,
+    $nagios_plugins_path     = $nagios::params::nagios_plugins_path,
+    $contacts_file     = $nagios::params::contacts_file,
+    $nagios_commands_file     = $nagios::params::nagios_commands_file,
+    $nagios_objects_path     = $nagios::params::nagios_objects_path,
+    $nrpe_sript_file     = $nagios::params::nrpe_sript_file,
+>>>>>>> e613c9ec284baad9a5842ab93b95f1619db0af7c
 )inherits nagios::params {
     include nagios::server_package
     include nagios::server_config
     include nagios::server_service
+    include nagios::server_import
 }
