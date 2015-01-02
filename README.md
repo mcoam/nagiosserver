@@ -1,7 +1,7 @@
 Module for Nagios Server monitoring version 1.0
 ==============================================
 
-#### Nagios server running only Centos server, nodes supported  only family Rhel and Debian
+##### Nagios server running only Centos server and nodes supported are Rhel and Debian family
 
 ####Install package and setting configuration on Nagios Server
 
